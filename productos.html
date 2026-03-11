@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Productos - Deco & Luminarias</title>
-<link rel="icon" type="image/ico" href="https://luminariasdeco63-spec.github.io/catalogo-web/favicon.ico">
+<link rel="icon" type="image/png" href="https://luminariasdeco63-spec.github.io/catalogo-web/favicon.png">
 
 <meta property="og:title" content="Catálogo de Productos - Deco & Luminarias">
 <meta property="og:description" content="Descubre nuestra exclusiva línea de iluminación. Lámparas de cristal, bases de mármol y más.">
@@ -46,8 +46,16 @@ nav ul li a:hover { color: #ffffff; }
 .btn-consultar { margin-top: auto; background-color: #a87b51; color: #ffffff; border: none; border-radius: 6px; padding: 10px; font-size: 11px; font-weight: 600; letter-spacing: 1px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: background-color 0.3s ease; text-decoration: none; }
 .btn-consultar:hover { background-color: #8f6742; }
 .btn-consultar svg { width: 14px; height: 14px; fill: #ffffff; }
+
+/* ESTILOS PARA LA PAGINACIÓN */
+.pagination-container { display: flex; justify-content: center; align-items: center; gap: 15px; margin-top: 40px; width: 100%; }
+.pagination-container button { background-color: #a87b51; color: #ffffff; border: none; border-radius: 6px; padding: 10px 20px; font-size: 11px; font-weight: 600; letter-spacing: 1px; cursor: pointer; transition: background-color 0.3s ease; }
+.pagination-container button:disabled { background-color: #333; color: #666; cursor: not-allowed; }
+.pagination-container button:not(:disabled):hover { background-color: #8f6742; }
+.pagination-container span { color: #888; font-size: 12px; letter-spacing: 1px; font-weight: bold; }
+
 footer { width: 100%; background-color: rgba(0, 0, 0, 0.4); border-top: 1px solid rgba(255, 255, 255, 0.05); padding: 30px 20px; display: flex; flex-direction: column; align-items: center; gap: 10px; margin-top: auto; z-index: 30; }
-footer p { margin: 0; color: #888888; font-size: 10px; letter-spacing: 0.5px; text-align: center; font-family: 'Arial', sans-serif; }
+footer p { margin: 0; color: #888888; font-size: 10px; text-align: center; font-family: 'Arial', sans-serif; }
 footer a { color: #c48b5c; text-decoration: none; transition: color 0.3s ease; }
 footer a:hover { color: #ffffff; }
 @media (max-width: 1024px) { .products-grid { grid-template-columns: repeat(3, 1fr); } }
@@ -87,73 +95,8 @@ footer a:hover { color: #ffffff; }
         </div>
     </div>
 
-    <div class="products-grid" id="productsGrid">
+    <div class="products-grid" id="productsGrid"></div>
 
-        <div class="product-card">
-            <div class="product-image-container">
-                <img src="https://ik.imagekit.io/ycyzylh36/prod_3.avif" alt="CABLE ELECTRICO UNIPOLAR 2.5 MM NORMALIZADO X METRO ROJO">
-            </div>
-            <div class="product-info">
-                <span class="product-brand">STECK</span>
-                <h3 class="product-name">CABLE ELECTRICO UNIPOLAR 2.5 MM NORMALIZADO X METRO ROJO</h3>
-                <p class="product-price">$2.800</p>
-                <p class="product-code">Codigo: PROD-8F40946B</p>
-                <a href="https://api.whatsapp.com/send/?phone=5493549433565&text=Hola%20Deco%20%26%20Luminarias!%0A%0AMe%20interesa%20este%20producto:%0A💡%20CABLE%20ELECTRICO%20UNIPOLAR%202.5%20MM%20NORMALIZADO%20X%20METRO%20ROJO%0A🔢%20C%C3%B3digo%20PROD-8F40946B%0A💰%20Precio:%20$2.800%0A%0ALink:%20https://luminariasdeco63-spec.github.io/catalogo-web/producto-prod-8f40946b.html" target="_blank" class="btn-consultar">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-                    CONSULTAR
-                </a>
-            </div>
-        </div>
-
-        <div class="product-card">
-            <div class="product-image-container">
-                <img src="https://ik.imagekit.io/ycyzylh36/prod_7.avif" alt="LAMPARA COLGANTE CHINA CHAPA 32CM NEGRA FERROLUXLAMPARA COLGANTE CHINA CHAPA 32CM NEGRA FERROLUXLAMPARA COLGANTE CHINA CHAPA 32CM NEGRA FERROLUX">
-            </div>
-            <div class="product-info">
-                <span class="product-brand">TEST</span>
-                <h3 class="product-name">LAMPARA COLGANTE CHINA CHAPA 32CM NEGRA FERROLUXLAMPARA COLGANTE CHINA CHAPA 32CM NEGRA FERROLUXLAMPARA COLGANTE CHINA CHAPA 32CM NEGRA FERROLUX</h3>
-                <p class="product-price">$9.800</p>
-                <p class="product-code">Codigo: PROD-69021F54</p>
-                <a href="https://api.whatsapp.com/send/?phone=5493549433565&text=Hola%20Deco%20%26%20Luminarias!%0A%0AMe%20interesa%20este%20producto:%0A💡%20LAMPARA%20COLGANTE%20CHINA%20CHAPA%2032CM%20NEGRA%20FERROLUXLAMPARA%20COLGANTE%20CHINA%20CHAPA%2032CM%20NEGRA%20FERROLUXLAMPARA%20COLGANTE%20CHINA%20CHAPA%2032CM%20NEGRA%20FERROLUX%0A🔢%20C%C3%B3digo%20PROD-69021F54%0A💰%20Precio:%20$9.800%0A%0ALink:%20https://luminariasdeco63-spec.github.io/catalogo-web/producto-prod-69021f54.html" target="_blank" class="btn-consultar">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-                    CONSULTAR
-                </a>
-            </div>
-        </div>
-
-        <div class="product-card">
-            <div class="product-image-container">
-                <img src="https://ik.imagekit.io/ycyzylh36/prod_6.avif" alt="LAMPARA LED FOCO PERA 5W FILAMENTO DECO CALIDO E27 AMBAR">
-            </div>
-            <div class="product-info">
-                <span class="product-brand">SIKA</span>
-                <h3 class="product-name">LAMPARA LED FOCO PERA 5W FILAMENTO DECO CALIDO E27 AMBAR</h3>
-                <p class="product-price">$3.500</p>
-                <p class="product-code">Codigo: PROD-7A3A8C04</p>
-                <a href="https://api.whatsapp.com/send/?phone=5493549433565&text=Hola%20Deco%20%26%20Luminarias!%0A%0AMe%20interesa%20este%20producto:%0A💡%20LAMPARA%20LED%20FOCO%20PERA%205W%20FILAMENTO%20DECO%20CALIDO%20E27%20AMBAR%0A🔢%20C%C3%B3digo%20PROD-7A3A8C04%0A💰%20Precio:%20$3.500%0A%0ALink:%20https://luminariasdeco63-spec.github.io/catalogo-web/producto-prod-7a3a8c04.html" target="_blank" class="btn-consultar">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-                    CONSULTAR
-                </a>
-            </div>
-        </div>
-
-        <div class="product-card">
-            <div class="product-image-container">
-                <img src="https://ik.imagekit.io/ycyzylh36/prod_2.avif" alt="LLAVE TERMICA BIPOLAR 2 X 25 - 3 KA CURVA C STECK 25 A 220 V BLANCO">
-            </div>
-            <div class="product-info">
-                <span class="product-brand">STECK</span>
-                <h3 class="product-name">LLAVE TERMICA BIPOLAR 2 X 25 - 3 KA CURVA C STECK 25 A 220 V BLANCO</h3>
-                <p class="product-price">$7.280</p>
-                <p class="product-code">Codigo: PROD-4DF415C7</p>
-                <a href="https://api.whatsapp.com/send/?phone=5493549433565&text=Hola%20Deco%20%26%20Luminarias!%0A%0AMe%20interesa%20este%20producto:%0A💡%20LLAVE%20TERMICA%20BIPOLAR%202%20X%2025%20-%203%20KA%20CURVA%20C%20STECK%2025%20A%20220%20V%20BLANCO%0A🔢%20C%C3%B3digo%20PROD-4DF415C7%0A💰%20Precio:%20$7.280%0A%0ALink:%20https://luminariasdeco63-spec.github.io/catalogo-web/producto-prod-4df415c7.html" target="_blank" class="btn-consultar">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-                    CONSULTAR
-                </a>
-            </div>
-        </div>
-
-    </div>
 </main>
 
 <footer>
@@ -163,25 +106,119 @@ footer a:hover { color: #ffffff; }
 </footer>
 
 <script>
+    // INYECCIÓN DINÁMICA DE LA BASE DE DATOS CREADA POR PYTHON
+    const allProducts = [{"titulo": "CABLE ELECTRICO UNIPOLAR 2.5 MM NORMALIZADO X METRO ROJO", "precio": "2.800", "codigo": "PROD-8F40946B", "marca": "STECK", "imagen": "https://ik.imagekit.io/ycyzylh36/prod_3.avif", "link_wpp": "https://api.whatsapp.com/send/?phone=5493549433565&text=Hola%20Deco%20%26%20Luminarias!%0A%0AMe%20interesa%20este%20producto:%0A\ud83d\udca1%20CABLE%20ELECTRICO%20UNIPOLAR%202.5%20MM%20NORMALIZADO%20X%20METRO%20ROJO%0A\ud83d\udd22%20C%C3%B3digo%20PROD-8F40946B%0A\ud83d\udcb0%20Precio:%20$2.800%0A%0ALink:%20https://luminariasdeco63-spec.github.io/catalogo-web/producto-prod-8f40946b.html"}, {"titulo": "LAMPARA COLGANTE CHINA CHAPA 32CM NEGRA FERROLUXLAMPARA COLGANTE CHINA CHAPA 32CM NEGRA FERROLUXLAMPARA COLGANTE CHINA CHAPA 32CM NEGRA FERROLUX", "precio": "9.800", "codigo": "PROD-69021F54", "marca": "TEST", "imagen": "https://ik.imagekit.io/ycyzylh36/prod_7.avif", "link_wpp": "https://api.whatsapp.com/send/?phone=5493549433565&text=Hola%20Deco%20%26%20Luminarias!%0A%0AMe%20interesa%20este%20producto:%0A\ud83d\udca1%20LAMPARA%20COLGANTE%20CHINA%20CHAPA%2032CM%20NEGRA%20FERROLUXLAMPARA%20COLGANTE%20CHINA%20CHAPA%2032CM%20NEGRA%20FERROLUXLAMPARA%20COLGANTE%20CHINA%20CHAPA%2032CM%20NEGRA%20FERROLUX%0A\ud83d\udd22%20C%C3%B3digo%20PROD-69021F54%0A\ud83d\udcb0%20Precio:%20$9.800%0A%0ALink:%20https://luminariasdeco63-spec.github.io/catalogo-web/producto-prod-69021f54.html"}, {"titulo": "LAMPARA LED FOCO PERA 5W FILAMENTO DECO CALIDO E27 AMBAR", "precio": "3.500", "codigo": "PROD-7A3A8C04", "marca": "SIKA", "imagen": "https://ik.imagekit.io/ycyzylh36/prod_6.avif", "link_wpp": "https://api.whatsapp.com/send/?phone=5493549433565&text=Hola%20Deco%20%26%20Luminarias!%0A%0AMe%20interesa%20este%20producto:%0A\ud83d\udca1%20LAMPARA%20LED%20FOCO%20PERA%205W%20FILAMENTO%20DECO%20CALIDO%20E27%20AMBAR%0A\ud83d\udd22%20C%C3%B3digo%20PROD-7A3A8C04%0A\ud83d\udcb0%20Precio:%20$3.500%0A%0ALink:%20https://luminariasdeco63-spec.github.io/catalogo-web/producto-prod-7a3a8c04.html"}, {"titulo": "LLAVE TERMICA BIPOLAR 2 X 25 - 3 KA CURVA C STECK 25 A 220 V BLANCO", "precio": "7.280", "codigo": "PROD-4DF415C7", "marca": "STECK", "imagen": "https://ik.imagekit.io/ycyzylh36/prod_2.avif", "link_wpp": "https://api.whatsapp.com/send/?phone=5493549433565&text=Hola%20Deco%20%26%20Luminarias!%0A%0AMe%20interesa%20este%20producto:%0A\ud83d\udca1%20LLAVE%20TERMICA%20BIPOLAR%202%20X%2025%20-%203%20KA%20CURVA%20C%20STECK%2025%20A%20220%20V%20BLANCO%0A\ud83d\udd22%20C%C3%B3digo%20PROD-4DF415C7%0A\ud83d\udcb0%20Precio:%20$7.280%0A%0ALink:%20https://luminariasdeco63-spec.github.io/catalogo-web/producto-prod-4df415c7.html"}, {"titulo": "TEST", "precio": "140", "codigo": "PROD-19D24750", "marca": "TEST", "imagen": "https://via.placeholder.com/500x500?text=Sin+Imagen", "link_wpp": "https://api.whatsapp.com/send/?phone=5493549433565&text=Hola%20Deco%20%26%20Luminarias!%0A%0AMe%20interesa%20este%20producto:%0A\ud83d\udca1%20TEST%0A\ud83d\udd22%20C%C3%B3digo%20PROD-19D24750%0A\ud83d\udcb0%20Precio:%20$140%0A%0ALink:%20https://luminariasdeco63-spec.github.io/catalogo-web/producto-prod-19d24750.html"}];
+
     document.addEventListener('DOMContentLoaded', () => {
         const searchInput = document.getElementById('searchInput');
-        const productCards = document.querySelectorAll('.product-card');
+        const productsGrid = document.getElementById('productsGrid');
+        
+        const itemsPerPage = 10;
+        let currentPage = 1;
+        let filteredProducts = [...allProducts];
 
-        searchInput.addEventListener('input', (e) => {
-            const searchText = e.target.value.toLowerCase();
+        // Crear contenedor de paginación
+        const paginationContainer = document.createElement('div');
+        paginationContainer.className = 'pagination-container';
+        productsGrid.parentNode.insertBefore(paginationContainer, productsGrid.nextSibling);
 
-            productCards.forEach(card => {
-                const productName = card.querySelector('.product-name').textContent.toLowerCase();
-                const productCode = card.querySelector('.product-code').textContent.toLowerCase();
-                const productBrand = card.querySelector('.product-brand').textContent.toLowerCase();
+        // Icono de WhatsApp en SVG (Para no saturar el código)
+        const wppIcon = `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>`;
 
-                if (productName.includes(searchText) || productCode.includes(searchText) || productBrand.includes(searchText)) {
-                    card.style.display = 'flex'; 
-                } else {
-                    card.style.display = 'none';
-                }
+        // Función que PINTA los productos en la pantalla súper rápido
+        function renderProducts(productsList) {
+            productsGrid.innerHTML = ''; // Limpiamos lo anterior
+            
+            if(productsList.length === 0) {
+                productsGrid.innerHTML = '<p style="grid-column: 1 / -1; text-align: center; color: #888;">No se encontraron productos.</p>';
+                return;
+            }
+
+            productsList.forEach(p => {
+                const card = `
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="${p.imagen}" alt="${p.titulo}" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-brand">${p.marca}</span>
+                            <h3 class="product-name">${p.titulo}</h3>
+                            <p class="product-price">$${p.precio}</p>
+                            <p class="product-code">Codigo: ${p.codigo}</p>
+                            <a href="${p.link_wpp}" target="_blank" class="btn-consultar">
+                                ${wppIcon} CONSULTAR
+                            </a>
+                        </div>
+                    </div>
+                `;
+                productsGrid.insertAdjacentHTML('beforeend', card);
             });
+        }
+
+        // Función que calcula y dibuja los botones de Paginación
+        function renderPagination() {
+            paginationContainer.innerHTML = '';
+            const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
+
+            if (totalPages <= 1) {
+                paginationContainer.style.display = 'none';
+                return;
+            }
+            
+            paginationContainer.style.display = 'flex';
+
+            const btnPrev = document.createElement('button');
+            btnPrev.innerText = 'ANTERIOR';
+            btnPrev.disabled = currentPage === 1;
+            btnPrev.onclick = () => { currentPage--; updateView(); };
+            paginationContainer.appendChild(btnPrev);
+
+            const indicator = document.createElement('span');
+            indicator.innerText = `PÁGINA ${currentPage} DE ${totalPages}`;
+            paginationContainer.appendChild(indicator);
+
+            const btnNext = document.createElement('button');
+            btnNext.innerText = 'SIGUIENTE';
+            btnNext.disabled = currentPage === totalPages;
+            btnNext.onclick = () => { currentPage++; updateView(); };
+            paginationContainer.appendChild(btnNext);
+        }
+
+        // Corta la lista de 10 en 10
+        function updateView() {
+            const start = (currentPage - 1) * itemsPerPage;
+            const end = start + itemsPerPage;
+            const productsToShow = filteredProducts.slice(start, end);
+            
+            renderProducts(productsToShow);
+            renderPagination();
+            
+            // Si el usuario bajó mucho, subirle la pantalla al cambiar de página
+            if(window.scrollY > productsGrid.offsetTop) {
+                window.scrollTo({ top: productsGrid.offsetTop - 50, behavior: 'smooth' });
+            }
+        }
+
+        // Buscador instantáneo sobre la base de JSON (Más rápido imposible)
+        searchInput.addEventListener('input', (e) => {
+            const searchText = e.target.value.toLowerCase().trim();
+
+            if (searchText === '') {
+                filteredProducts = [...allProducts];
+            } else {
+                filteredProducts = allProducts.filter(p => 
+                    p.titulo.toLowerCase().includes(searchText) || 
+                    p.codigo.toLowerCase().includes(searchText) || 
+                    p.marca.toLowerCase().includes(searchText)
+                );
+            }
+            
+            currentPage = 1; // Reseteamos a la página 1
+            updateView();
         });
+
+        // Primera carga
+        updateView();
     });
 </script>
 </body>
