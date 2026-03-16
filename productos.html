@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Productos - Deco & Luminarias</title>
-<link rel="icon" type="image/png" href="https://G4s70n.github.io/catalogo-web/favicon.png">
+<link rel="icon" type="image/ico" href="assets/favicon/favicon.ico">
 
 <meta property="og:title" content="Catálogo de Productos - Deco & Luminarias">
 <meta property="og:description" content="Descubre nuestra exclusiva línea de iluminación. Lámparas de cristal, bases de mármol y más.">
-<meta property="og:image" content="https://acdn-us.mitiendanube.com/stores/005/062/789/products/18-x-10-copia-7350f8c906962d70dd17367963061071-1024-1024.webp">
+<meta property="og:image" content="https://G4s70n.github.io/catalogo-web/assets/preview/preview.png">
 <meta property="og:url" content="https://G4s70n.github.io/catalogo-web/productos.html">
 <meta property="og:type" content="website">
 
@@ -33,23 +33,23 @@ nav ul li a:hover { color: #ffffff; }
 .search-input::placeholder { color: #888; }
 .search-input:focus { border-color: #c48b5c; box-shadow: 0 0 10px rgba(196, 139, 92, 0.2); }
 .search-icon { position: absolute; right: 15px; top: 50%; transform: translateY(-50%); fill: #888; width: 16px; height: 16px; pointer-events: none; }
-.products-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; }
-.product-card { background-color: #2b2b2e; border: 1px solid #4a3b2c; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.3s ease, box-shadow 0.3s ease; position: relative; }
-.product-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6); border-color: #c48b5c; }
+.products-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; position: relative; z-index: 10;}
+.product-card { background-color: #1a1a1a; border: 1px solid #333; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.3s ease, box-shadow 0.3s ease; position: relative; }
+.product-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6); border-color: #4a3b2c; }
 .product-image-container { width: 100%; aspect-ratio: 1 / 1; background-color: transparent; display: flex; align-items: center; justify-content: center; overflow: hidden; padding: 15px; }
 .product-image-container img { width: 100%; height: 100%; object-fit: contain; }
 .product-info { padding: 15px; display: flex; flex-direction: column; flex-grow: 1; }
-.product-brand { color: #d4af37; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 2px; }
+.product-brand { color: #c48b5c; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 2px; }
 .product-name { font-size: 16px; font-weight: bold; color: #ffffff; text-transform: uppercase; margin-bottom: 5px; line-height: 1.2; }
-.product-meta { display: flex; align-items: center; gap: 8px; font-size: 11px; color: #aaa; margin-bottom: 15px; }
+.product-meta { display: flex; align-items: center; gap: 8px; font-size: 11px; color: #888; margin-bottom: 15px; }
 .price-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
 .product-price { font-size: 24px; font-weight: bold; color: #ffffff; }
-.btn-share { background: transparent; border: none; color: #d4af37; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 5px; transition: 0.3s; }
+.btn-share { background: transparent; border: none; color: #c48b5c; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 5px; transition: 0.3s; }
 .btn-share:hover { transform: scale(1.1); color: #fff; }
 .btn-share svg { width: 18px; height: 18px; fill: currentColor; }
 .card-actions { display: flex; flex-direction: column; gap: 8px; margin-top: auto; }
-.btn-cart { background: linear-gradient(to right, #d4af37, #b08d2b); color: #000; font-weight: bold; border: none; border-radius: 6px; padding: 12px; font-size: 12px; letter-spacing: 1px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: 0.3s; text-transform: uppercase; }
-.btn-cart:hover { filter: brightness(1.1); }
+.btn-cart { background-color: #c48b5c; color: #000; font-weight: bold; border: none; border-radius: 6px; padding: 12px; font-size: 12px; letter-spacing: 1px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: 0.3s; text-transform: uppercase; }
+.btn-cart:hover { background-color: #a87245; }
 .btn-consultar { background-color: #175e3a; color: #ffffff; font-weight: bold; border: none; border-radius: 6px; padding: 12px; font-size: 12px; letter-spacing: 1px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: 0.3s; text-decoration: none; text-transform: uppercase; }
 .btn-consultar:hover { background-color: #124a2e; }
 
@@ -78,7 +78,7 @@ footer a:hover { color: #ffffff; }
 </style>
 </head>
 <body>
-
+<div class="touch-glow" id="touchGlow"></div>
 <header>
     <a href="index.html" class="nav-inicio">Inicio</a>
     <nav>
@@ -169,7 +169,7 @@ footer a:hover { color: #ffffff; }
                         <div class="product-info">
                             <span class="product-brand">${p.marca}</span>
                             <h3 class="product-name">${p.titulo}</h3>
-                            <div class="product-meta"><span>💡 ${p.categoria || 'Producto'}</span> | <span>SKU: ${p.codigo}</span></div>
+                            <div class="product-meta"><span>SKU: ${p.codigo}</span></div>
                             
                             <div class="price-row">
                                 <span class="product-price">$${p.precio}</span>
@@ -323,6 +323,27 @@ footer a:hover { color: #ffffff; }
                 alert('¡Enlace copiado al portapapeles!');
             }
         };
+
+        // Efecto Glow Sensible
+        const glow = document.getElementById('touchGlow');
+        function moveGlow(e) {
+            let x, y;
+            if (e.touches && e.touches.length > 0) {
+                x = e.touches[0].clientX;
+                y = e.touches[0].clientY;
+            } else {
+                x = e.clientX;
+                y = e.clientY;
+            }
+            requestAnimationFrame(() => {
+                glow.style.transform = `translate(${x}px, ${y}px)`;
+            });
+        }
+        document.addEventListener('touchstart', (e) => { glow.classList.add('active'); moveGlow(e); }, {passive: true});
+        document.addEventListener('touchmove', (e) => moveGlow(e), {passive: true});
+        document.addEventListener('touchend', () => glow.classList.remove('active'));
+        document.addEventListener('mousemove', (e) => { glow.classList.add('active'); moveGlow(e); });
+        document.addEventListener('mouseleave', () => glow.classList.remove('active'));
 
         // Primera carga
         updateView();

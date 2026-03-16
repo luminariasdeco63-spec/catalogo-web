@@ -4,11 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Categorías - Deco & Luminarias</title>
-<link rel="icon" type="image/ico" href="favicon.ico">
+<link rel="icon" type="image/ico" href="assets/favicon/favicon.ico">
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { background: radial-gradient(circle at 50% 35%, #352012 0%, #180c06 35%, #050302 65%, #000000 100%); background-attachment: fixed; color: #ffffff; font-family: 'Arial', sans-serif; overflow-x: hidden; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
 h1, h2, h3, h4, h5, h6, .section-title, .products-title { font-family: 'Georgia', serif; }
+/* EFECTO DE ILUMINACIÓN DE FONDO (TOUCH-GLOW) */
+.touch-glow { position: fixed; top: 0; left: 0; width: 400px; height: 400px; margin-top: -200px; margin-left: -200px; border-radius: 50%; background: radial-gradient(circle, rgba(196, 139, 92, 0.25) 0%, rgba(196, 139, 92, 0.05) 40%, rgba(0,0,0,0) 70%); pointer-events: none; z-index: 1; opacity: 0; transition: opacity 0.5s ease; will-change: transform, opacity; }
+.touch-glow.active { opacity: 1; }
 header { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 30px 60px; z-index: 50; background-color: rgba(0,0,0,0.5); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
 .nav-inicio { color: #b3b3b3; text-decoration: none; font-size: 11px; font-weight: normal; letter-spacing: 0.5px; transition: color 0.3s ease; display: flex; align-items: center; }
 .nav-inicio:hover { color: #ffffff; }
@@ -98,9 +101,10 @@ footer a:hover { color: #ffffff; }
     .category-title { font-size: 20px; }
 }
 </style>
+</style>
 </head>
 <body>
-
+<div class="touch-glow" id="touchGlow"></div>
 <header>
     <a href="index.html" class="nav-inicio">Inicio</a>
     <nav>
@@ -166,5 +170,28 @@ footer a:hover { color: #ffffff; }
     <p>Ubicación: 3 de Febrero, Cruz del Eje, Córdoba.</p>
     <p>&copy; 2026 Deco & Luminarias. Todos los derechos reservados.</p>
 </footer>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const glow = document.getElementById('touchGlow');
+        function moveGlow(e) {
+            let x, y;
+            if (e.touches && e.touches.length > 0) {
+                x = e.touches[0].clientX;
+                y = e.touches[0].clientY;
+            } else {
+                x = e.clientX;
+                y = e.clientY;
+            }
+            requestAnimationFrame(() => {
+                glow.style.transform = `translate(${x}px, ${y}px)`;
+            });
+        }
+        document.addEventListener('touchstart', (e) => { glow.classList.add('active'); moveGlow(e); }, {passive: true});
+        document.addEventListener('touchmove', (e) => moveGlow(e), {passive: true});
+        document.addEventListener('touchend', () => glow.classList.remove('active'));
+        document.addEventListener('mousemove', (e) => { glow.classList.add('active'); moveGlow(e); });
+        document.addEventListener('mouseleave', () => glow.classList.remove('active'));
+    });
+</script>
 </body>
 </html>

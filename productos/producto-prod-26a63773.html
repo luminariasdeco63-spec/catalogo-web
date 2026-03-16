@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CABLE BIPOLAR 2.5 MM X 100 MTS BLANCO - Deco & Luminarias</title>
 <meta name="description" content="Comprá CABLE BIPOLAR 2.5 MM X 100 MTS BLANCO en Deco & Luminarias. Iluminación y decoración de diseño. Código: PROD-26A63773.">
-<link rel="icon" type="image/png" href="https://[GITHUB_USER].github.io/[GITHUB_REPO]/favicon.png">
+<link rel="icon" type="image/ico" href="../assets/favicon/favicon.ico">
 
 <meta property="og:title" content="CABLE BIPOLAR 2.5 MM X 100 MTS BLANCO">
 <meta property="og:description" content="Código: PROD-26A63773 | Precio: $1.177">
@@ -14,9 +14,14 @@
 <meta property="og:type" content="product">
 <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: radial-gradient(circle at 50% 35%, #352012 0%, #180c06 35%, #050302 65%, #000000 100%); background-attachment: fixed; color: #ffffff; font-family: 'Arial', sans-serif; display: flex; flex-direction: column; min-height: 100vh; }
+    body { background: radial-gradient(circle at 50% 35%, #352012 0%, #180c06 35%, #050302 65%, #000000 100%); background-attachment: fixed; color: #ffffff; font-family: 'Arial', sans-serif; display: flex; flex-direction: column; min-height: 100vh; overflow-x: hidden; }
     h1, h2, h3, .section-title { font-family: 'Georgia', serif; }
     a { text-decoration: none; color: inherit; }
+    
+    /* EFECTO DE ILUMINACIÓN DE FONDO (TOUCH-GLOW) */
+    .touch-glow { position: fixed; top: 0; left: 0; width: 400px; height: 400px; margin-top: -200px; margin-left: -200px; border-radius: 50%; background: radial-gradient(circle, rgba(196, 139, 92, 0.25) 0%, rgba(196, 139, 92, 0.05) 40%, rgba(0,0,0,0) 70%); pointer-events: none; z-index: 1; opacity: 0; transition: opacity 0.5s ease; will-change: transform, opacity; }
+    .touch-glow.active { opacity: 1; }
+    
     header { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 30px 60px; background-color: rgba(0, 0, 0, 0.9); border-bottom: 1px solid rgba(255, 255, 255, 0.05); z-index: 50; }
     .nav-inicio { color: #b3b3b3; font-size: 11px; letter-spacing: 0.5px; transition: 0.3s; }
     .nav-inicio:hover { color: #ffffff; }
@@ -34,13 +39,13 @@
     .detail-info h1 { font-size: 28px; margin-bottom: 10px; color: #ffffff; }
     .detail-info .price { font-size: 24px; font-weight: bold; color: #c48b5c; margin-bottom: 5px; }
     .detail-info .code { font-size: 13px; color: #888; margin-bottom: 30px; letter-spacing: 1px; }
-    .btn-share { background: transparent; border: none; color: #d4af37; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 5px; transition: 0.3s; }
+    .btn-share { background: transparent; border: none; color: #c48b5c; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 5px; transition: 0.3s; }
     .btn-share:hover { transform: scale(1.1); color: #fff; }
     .btn-share svg { width: 24px; height: 24px; fill: currentColor; }
     .price-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; }
     .card-actions { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; width: 100%; }
-    .btn-cart { background: linear-gradient(to right, #d4af37, #b08d2b); color: #000; font-weight: bold; border: none; border-radius: 6px; padding: 15px; font-size: 14px; letter-spacing: 1px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: 0.3s; text-transform: uppercase; width: 100%;}
-    .btn-cart:hover { filter: brightness(1.1); }
+    .btn-cart { background-color: #c48b5c; color: #000; font-weight: bold; border: none; border-radius: 6px; padding: 15px; font-size: 14px; letter-spacing: 1px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: 0.3s; text-transform: uppercase; width: 100%;}
+    .btn-cart:hover { background-color: #a87245; }
     .btn-consultar { background-color: #175e3a; color: #ffffff; font-weight: bold; border: none; border-radius: 6px; padding: 15px; font-size: 14px; letter-spacing: 1px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: 0.3s; text-decoration: none; text-transform: uppercase; width: 100%;}
     .btn-consultar:hover { background-color: #124a2e; }
     
@@ -55,6 +60,7 @@
 </style>
 </head>
 <body>
+<div class="touch-glow" id="touchGlow"></div>
 <header>
     <a href="../index.html" class="nav-inicio">Inicio</a>
     <nav><ul><li><a href="../categorias.html">Productos</a></li><li><a href="../ubicacion.html">Ubicación</a></li><li><a href="../contacto.html">Contacto</a></li><li><a href="../carrito.html" style="color: #c48b5c;">Carrito 🛒</a></li><li><a href="https://www.instagram.com/deco_luminarias" target="_blank"><svg class="icon-instagram" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a></li></ul></nav>
@@ -109,6 +115,26 @@
             setTimeout(() => toast.remove(), 300);
         }, 3000);
     }
+
+    const glow = document.getElementById('touchGlow');
+    function moveGlow(e) {
+        let x, y;
+        if (e.touches && e.touches.length > 0) {
+            x = e.touches[0].clientX;
+            y = e.touches[0].clientY;
+        } else {
+            x = e.clientX;
+            y = e.clientY;
+        }
+        requestAnimationFrame(() => {
+            glow.style.transform = `translate(${x}px, ${y}px)`;
+        });
+    }
+    document.addEventListener('touchstart', (e) => { glow.classList.add('active'); moveGlow(e); }, {passive: true});
+    document.addEventListener('touchmove', (e) => moveGlow(e), {passive: true});
+    document.addEventListener('touchend', () => glow.classList.remove('active'));
+    document.addEventListener('mousemove', (e) => { glow.classList.add('active'); moveGlow(e); });
+    document.addEventListener('mouseleave', () => glow.classList.remove('active'));
 
     function addToCart() {
         let cart = JSON.parse(localStorage.getItem('cart') || '[]');
