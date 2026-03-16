@@ -87,6 +87,8 @@ footer p { margin: 0; color: #888888; font-size: 10px; text-align: center; font-
 footer a { color: #c48b5c; text-decoration: none; transition: color 0.3s ease; }
 footer a:hover { color: #ffffff; }
 
+.btn-ver-todos { background-color: #c48b5c; color: #ffffff; border: none; padding: 14px 28px; font-size: 11px; font-weight: 600; letter-spacing: 1px; cursor: pointer; transition: background-color 0.3s ease, transform 0.2s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.3); border-radius: 4px; font-family: 'Arial', sans-serif;}
+.btn-ver-todos:hover { background-color: #a87245; transform: scale(1.02); }
 @media (max-width: 768px) { 
     header { flex-direction: row; justify-content: center; align-items: center; padding: 20px 10px; gap: 15px; flex-wrap: wrap; } 
     nav ul { justify-content: center; flex-wrap: nowrap; gap: 15px; } 
@@ -123,41 +125,39 @@ footer a:hover { color: #ffffff; }
 
     <div class="categories-grid">
         <a href="productos.html?categoria=Decoración" class="category-card">
-            <!-- Background Images are generic nice stock equivalents just for aesthetic representation based on prompt -->
-            <div class="category-bg" style="background-image: url('https://images.unsplash.com/photo-1513694203232-719a280e022f?w=600&h=600&fit=crop&q=80')"></div>
+            <!-- Las imagenes se cargan desde assets/categorias/ para facilitar el reemplazo -->
+            <div class="category-bg" style="background-image: url('assets/categorias/decoracion.jpg')"></div>
             <div class="category-overlay"></div>
             <h2 class="category-title">Decoración</h2>
         </a>
         
         <a href="productos.html?categoria=Iluminación" class="category-card">
-            <div class="category-bg" style="background-image: url('https://images.unsplash.com/photo-1540932239986-30128078f3d5?w=600&h=600&fit=crop&q=80')"></div>
+            <div class="category-bg" style="background-image: url('assets/categorias/iluminacion.jpg')"></div>
             <div class="category-overlay"></div>
             <h2 class="category-title">Iluminación</h2>
         </a>
 
         <a href="productos.html?categoria=Electricidad" class="category-card">
-            <div class="category-bg" style="background-image: url('https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=600&h=600&fit=crop&q=80')"></div>
+            <div class="category-bg" style="background-image: url('assets/categorias/electricidad.jpg')"></div>
             <div class="category-overlay"></div>
             <h2 class="category-title">Electricidad</h2>
         </a>
 
         <a href="productos.html?categoria=Ferretería" class="category-card">
-            <div class="category-bg" style="background-image: url('https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=600&h=600&fit=crop&q=80')"></div>
+            <div class="category-bg" style="background-image: url('assets/categorias/ferreteria.jpg')"></div>
             <div class="category-overlay"></div>
             <h2 class="category-title">Ferretería</h2>
         </a>
 
         <a href="productos.html?categoria=Esencias" class="category-card">
-            <div class="category-bg" style="background-image: url('https://images.unsplash.com/photo-1608528577891-eb05fec5b085?w=600&h=600&fit=crop&q=80')"></div>
+            <div class="category-bg" style="background-image: url('assets/categorias/esencias.jpg')"></div>
             <div class="category-overlay"></div>
             <h2 class="category-title">Esencias</h2>
         </a>
-        
-        <a href="productos.html" class="category-card" style="grid-column: 1 / -1; max-width: 400px; margin: 0 auto; aspect-ratio: 4/1; margin-top: 20px;">
-            <div class="category-bg" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&h=300&fit=crop&q=80'); opacity: 0.3;"></div>
-            <div class="category-overlay"></div>
-            <h2 class="category-title" style="font-size: 18px;">VER TODOS LOS PRODUCTOS</h2>
-        </a>
+    </div>
+    
+    <div style="margin-top: 40px;">
+        <a href="productos.html"><button class="btn-ver-todos">VER TODOS LOS PRODUCTOS</button></a>
     </div>
 </main>
 

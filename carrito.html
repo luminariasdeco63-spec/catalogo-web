@@ -65,12 +65,22 @@ footer a:hover { color: #ffffff; }
     header { flex-direction: row; justify-content: center; align-items: center; padding: 20px 10px; gap: 15px; flex-wrap: wrap;} 
     nav ul { justify-content: center; flex-wrap: nowrap; gap: 15px; } 
     .nav-inicio, nav ul li a { white-space: nowrap; }
-    .cart-item { flex-direction: column; align-items: stretch; text-align: center; position: relative; padding-top: 40px;}
-    .item-image { margin: 0 auto; }
-    .item-price { text-align: center; margin-top: 10px; }
-    .item-quantity { justify-content: center; margin: 15px auto 0; width: fit-content;}
-    .item-remove { position: absolute; top: 10px; right: 10px; }
-    .cart-summary { align-items: center; }
+    
+    .cart-item { flex-direction: row; align-items: center; padding: 10px; gap: 10px; position: relative; }
+    .item-image { width: 50px; height: 50px; margin: 0; }
+    .item-details { max-width: 50%; }
+    .item-name { font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 2px;}
+    .item-code, .item-brand { display: none; }
+    .item-price { font-size: 14px; min-width: auto; text-align: right; }
+    .item-quantity { padding: 2px 5px; gap: 5px; margin: 0; position: absolute; right: 10px; bottom: 10px; }
+    .qty-btn { width: 22px; height: 22px; font-size: 16px; }
+    .qty-display { min-width: 15px; font-size: 13px; }
+    .item-remove { position: absolute; top: 5px; right: 5px; padding: 5px; }
+    .item-remove svg { width: 16px; height: 16px; }
+    
+    .cart-summary { align-items: stretch; padding: 15px; text-align: center;}
+    .summary-total { font-size: 18px; margin-bottom: 10px;}
+    .btn-whatsapp { max-width: 100%; font-size: 12px; }
 }
 </style>
 </head>
@@ -227,13 +237,7 @@ footer a:hover { color: #ffffff; }
 
             message += `✅ ${item.cantidad}x ${item.titulo}\n`;
             message += `   Código: ${item.codigo}\n`;
-            message += `   Subtotal: $${subtotal.toLocaleString('es-AR')}\n`;
-            if(item.link_wpp) {
-                // Extracting original link if possible, or just build it
-                const productUrl = `https://www.decoluminarias.com.ar/producto-${item.codigo.replace(/&/g, '').replace(/ /g, '-')}.html`.toLowerCase();
-                message += `   Link: ${productUrl}\n`;
-            }
-            message += `\n`;
+            message += `   Subtotal: $${subtotal.toLocaleString('es-AR')}\n\n`;
         });
 
         message += `===================\n`;
