@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Categorías - Deco & Luminarias</title>
+<link rel="icon" type="image/ico" href="favicon.ico">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: radial-gradient(circle at 50% 35%, #352012 0%, #180c06 35%, #050302 65%, #000000 100%); background-attachment: fixed; color: #ffffff; font-family: 'Arial', sans-serif; overflow-x: hidden; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
+h1, h2, h3, h4, h5, h6, .section-title, .products-title { font-family: 'Georgia', serif; }
+header { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 30px 60px; z-index: 50; background-color: rgba(0,0,0,0.5); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+.nav-inicio { color: #b3b3b3; text-decoration: none; font-size: 11px; font-weight: normal; letter-spacing: 0.5px; transition: color 0.3s ease; display: flex; align-items: center; }
+.nav-inicio:hover { color: #ffffff; }
+nav ul { list-style: none; display: flex; align-items: center; gap: 25px; }
+nav ul li { display: flex; align-items: center; }
+nav ul li a { color: #b3b3b3; text-decoration: none; font-size: 11px; letter-spacing: 0.5px; transition: color 0.3s ease; display: flex; align-items: center; }
+nav ul li a:hover { color: #ffffff; }
+.icon-instagram { width: 18px; height: 18px; fill: #b3b3b3; transition: fill 0.3s ease; }
+.icon-instagram:hover { fill: #ffffff; }
+
+.products-section { width: 100%; max-width: 1200px; padding: 80px 20px 40px 20px; flex-grow: 1; display:flex; flex-direction: column; align-items: center; }
+.products-header { margin-bottom: 50px; text-align: center; }
+.products-title { font-family: 'Georgia', serif; font-size: 28px; font-weight: 400; letter-spacing: 3px; text-transform: uppercase; color: #ffffff; }
+
+.categories-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; width: 100%; max-width: 1000px; }
+
+.category-card { 
+    position: relative; 
+    border-radius: 12px; 
+    overflow: hidden; 
+    aspect-ratio: 1 / 1; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    text-decoration: none; 
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    border: 1px solid #333;
+    background-color: #1a1a1a;
+}
+
+.category-card:hover { 
+    transform: translateY(-8px) scale(1.02); 
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8); 
+    border-color: #c48b5c; 
+}
+
+.category-bg {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.5;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.category-card:hover .category-bg {
+    opacity: 0.7;
+    transform: scale(1.1);
+}
+
+.category-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 100%);
+}
+
+.category-title {
+    position: relative;
+    z-index: 10;
+    font-family: 'Georgia', serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+    transition: transform 0.3s ease;
+}
+
+.category-card:hover .category-title {
+    transform: scale(1.05);
+}
+
+footer { width: 100%; background-color: rgba(0, 0, 0, 0.4); border-top: 1px solid rgba(255, 255, 255, 0.05); padding: 30px 20px; display: flex; flex-direction: column; align-items: center; gap: 10px; margin-top: auto; z-index: 30; }
+footer p { margin: 0; color: #888888; font-size: 10px; text-align: center; font-family: 'Arial', sans-serif; }
+footer a { color: #c48b5c; text-decoration: none; transition: color 0.3s ease; }
+footer a:hover { color: #ffffff; }
+
+@media (max-width: 768px) { 
+    header { flex-direction: row; justify-content: center; align-items: center; padding: 20px 10px; gap: 15px; flex-wrap: wrap; } 
+    nav ul { justify-content: center; flex-wrap: nowrap; gap: 15px; } 
+    .nav-inicio, nav ul li a { white-space: nowrap; }
+    .products-section { padding-top: 40px; }
+    .categories-grid { gap: 20px; }
+    .category-title { font-size: 20px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="nav-inicio">Inicio</a>
+    <nav>
+        <ul>
+            <li><a href="categorias.html" style="color: #ffffff;">Productos</a></li>
+            <li><a href="ubicacion.html">Ubicación</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+            <li><a href="carrito.html" style="color: #c48b5c;">Carrito 🛒</a></li>
+            <li>
+                <a href="https://www.instagram.com/deco_luminarias" target="_blank" aria-label="Síguenos en Instagram">
+                    <svg class="icon-instagram" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<main class="products-section">
+    <div class="products-header">
+        <h1 class="products-title">SELECCIONÁ UNA CATEGORÍA</h1>
+    </div>
+
+    <div class="categories-grid">
+        <a href="productos.html?categoria=Decoración" class="category-card">
+            <!-- Background Images are generic nice stock equivalents just for aesthetic representation based on prompt -->
+            <div class="category-bg" style="background-image: url('https://images.unsplash.com/photo-1513694203232-719a280e022f?w=600&h=600&fit=crop&q=80')"></div>
+            <div class="category-overlay"></div>
+            <h2 class="category-title">Decoración</h2>
+        </a>
+        
+        <a href="productos.html?categoria=Iluminación" class="category-card">
+            <div class="category-bg" style="background-image: url('https://images.unsplash.com/photo-1540932239986-30128078f3d5?w=600&h=600&fit=crop&q=80')"></div>
+            <div class="category-overlay"></div>
+            <h2 class="category-title">Iluminación</h2>
+        </a>
+
+        <a href="productos.html?categoria=Electricidad" class="category-card">
+            <div class="category-bg" style="background-image: url('https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=600&h=600&fit=crop&q=80')"></div>
+            <div class="category-overlay"></div>
+            <h2 class="category-title">Electricidad</h2>
+        </a>
+
+        <a href="productos.html?categoria=Ferretería" class="category-card">
+            <div class="category-bg" style="background-image: url('https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=600&h=600&fit=crop&q=80')"></div>
+            <div class="category-overlay"></div>
+            <h2 class="category-title">Ferretería</h2>
+        </a>
+
+        <a href="productos.html?categoria=Esencias" class="category-card">
+            <div class="category-bg" style="background-image: url('https://images.unsplash.com/photo-1608528577891-eb05fec5b085?w=600&h=600&fit=crop&q=80')"></div>
+            <div class="category-overlay"></div>
+            <h2 class="category-title">Esencias</h2>
+        </a>
+        
+        <a href="productos.html" class="category-card" style="grid-column: 1 / -1; max-width: 400px; margin: 0 auto; aspect-ratio: 4/1; margin-top: 20px;">
+            <div class="category-bg" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&h=300&fit=crop&q=80'); opacity: 0.3;"></div>
+            <div class="category-overlay"></div>
+            <h2 class="category-title" style="font-size: 18px;">VER TODOS LOS PRODUCTOS</h2>
+        </a>
+    </div>
+</main>
+
+<footer>
+    <p>Contacto: <a>3549-433565</a></p>
+    <p>Ubicación: 3 de Febrero, Cruz del Eje, Córdoba.</p>
+    <p>&copy; 2026 Deco & Luminarias. Todos los derechos reservados.</p>
+</footer>
+</body>
+</html>
