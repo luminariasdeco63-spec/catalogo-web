@@ -14,7 +14,8 @@
 <meta property="og:type" content="product">
 <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: radial-gradient(circle at 50% 35%, #352012 0%, #180c06 35%, #050302 65%, #000000 100%); background-attachment: fixed; color: #ffffff; font-family: 'Arial', sans-serif; display: flex; flex-direction: column; min-height: 100vh; overflow-x: hidden; }
+    html, body { overflow-x: hidden; max-width: 100%; }
+    body { background: radial-gradient(circle at 50% 35%, #352012 0%, #180c06 35%, #050302 65%, #000000 100%); background-attachment: fixed; color: #ffffff; font-family: 'Arial', sans-serif; display: flex; flex-direction: column; min-height: 100vh; }
     h1, h2, h3, .section-title { font-family: 'Georgia', serif; }
     a { text-decoration: none; color: inherit; }
     
@@ -56,7 +57,12 @@
     footer p { color: #888888; font-size: 10px; text-align: center; }
     footer a { color: #c48b5c; transition: 0.3s; }
     footer a:hover { color: #ffffff; }
-    @media (max-width: 768px) { header { flex-direction: row; justify-content: center; padding: 20px 10px; gap: 15px; } nav ul { gap: 15px; } .detail-info { padding: 30px 20px; } .detail-info h1 { font-size: 22px; } }
+    @media (max-width: 768px) { 
+        header { flex-direction: column; justify-content: center; padding: 20px 10px; gap: 15px; } 
+        nav ul { flex-wrap: wrap; justify-content: center; gap: 10px; } 
+        .detail-info { padding: 30px 20px; } 
+        .detail-info h1 { font-size: 22px; } 
+    }
 </style>
 </head>
 <body>
@@ -79,13 +85,13 @@
             </div>
             <p class="code">Código: PROD-5FF34105</p>
             <div class="card-actions">
-                <button onclick="addToCart()" class="btn-cart">
+                <button type="button" onclick="event.preventDefault(); event.stopPropagation(); addToCart()" class="btn-cart">
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
                     AÑADIR AL CARRITO
                 </button>
                 <a href="https://api.whatsapp.com/send/?phone=5493549433565&text=Hola%20Deco%20%26%20Luminarias!%0A%0AMe%20interesa%20este%20producto:%0A%20PRECINTO%20L5%20NEG.%20X%20UNIDAD%20%28292%20X%205.0%29LOGIC%0ACodigo%20PROD-5FF34105%0APrecio:%20$88%0A%0ALink:%20https://www.decoluminarias.com.ar/productos/producto-prod-5ff34105.html" target="_blank" class="btn-consultar">
                     <svg viewBox="0 0 24 24" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" fill="#fff"/></svg>
-                    CONSULTAR POR WHATSAPP
+                    CONSULTAR
                 </a>
             </div>
         </div>
@@ -153,7 +159,7 @@
             cart.push({ ...p, cantidad: 1 });
         }
         localStorage.setItem('cart', JSON.stringify(cart));
-        showToast('PRECINTO L5 NEG. X UNIDAD (292 X 5.0)LOGIC añadido al carrito');
+        showToast('Añadido al carrito');
     }
     function shareProduct() {
         const url = window.location.href;
