@@ -272,7 +272,11 @@ footer a:hover { color: #ffffff; }
             categoryFilteredList = allProducts.filter(p => p.categoria.toLowerCase() === urlCategoria.toLowerCase());
             filteredProducts = [...categoryFilteredList];
             const productsHeader = document.querySelector('.products-title');
-            if (productsHeader) productsHeader.innerText = urlCategoria.toUpperCase();
+            if (productsHeader) {
+                let catText = urlCategoria.toUpperCase();
+                if (catText === 'DECORACION' || catText === 'DECORACIÓN') catText = 'DECO TEXTIL';
+                productsHeader.innerText = catText;
+            }
         }
 
         // Buscador instantáneo sobre la base de JSON
